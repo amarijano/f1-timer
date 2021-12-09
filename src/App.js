@@ -5,7 +5,7 @@ import Homepage from "./pages/homepage/Homepage";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="content">
         <Homepage />
       </div>

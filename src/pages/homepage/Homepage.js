@@ -1,8 +1,14 @@
+import Navbar from "../../components/Navbar/Navbar";
+
+import PageLayout from "../../layout/PageLayout";
 const Homepage = () => {
   return (
-    <div className="homepage">
-      <h2>Homepage</h2>
-    </div>
+    <>
+      <PageLayout>
+        <Navbar />
+        <h2>bilo sta</h2>
+      </PageLayout>
+    </>
   );
 };
 
