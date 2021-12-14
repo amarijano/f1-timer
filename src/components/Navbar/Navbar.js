@@ -18,7 +18,7 @@ const Navbar = () => {
   const width = useSize();
   const handleLogin = () => {};
   return (
-    <nav className="NavbarItems">
+    <nav className="navbar-items">
       <h1 className="navbar-logo">
         F1 Timer
         <i className="timer-logo">
