@@ -46,20 +46,6 @@ const Timer = () => {
     return () => clearInterval(timer);
   });
 
-  // const timerComponents = [];
-
-  // Object.keys(timeLeft).forEach((interval) => {
-  //   /*if (!timeLeft[interval]) {
-  //     return;
-  //   }*/
-
-  //   timerComponents.push(
-  //     <span className="num" key={interval}>
-  //       {timeLeft[interval]} {interval}{" "}
-  //     </span>
-  //   );
-  // });
-
   return (
     <div className="timer-Bar">
       {
@@ -85,12 +71,5 @@ const Timer = () => {
     </div>
   );
 };
-
-//   return (
-//     <div className="timer-Bar">
-//       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
-//     </div>
-//   );
-// };
 
 export default Timer;
