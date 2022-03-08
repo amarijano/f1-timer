@@ -13,6 +13,7 @@
 }
 
 .navbar-logo {
+  background: rgb(225, 6, 0);
   color: #fff;
   justify-self: start;
   margin-left: 20px;
@@ -27,12 +28,17 @@
   }
 }
 
-.timer-logo {
+.timer-logo-navbar {
+  background: rgb(225, 6, 0);
   margin-left: 0.5rem;
   font-size: 1.6rem;
 }
+.timer-icon {
+  background: rgb(225, 6, 0);
+}
 
 .nav-menu {
+  background: rgb(225, 6, 0);
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
@@ -68,6 +74,7 @@
 }
 
 .nav-links {
+  background: rgb(225, 6, 0);
   color: #fff;
   text-decoration: none;
   padding: 0.5rem 1rem;

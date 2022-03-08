@@ -6,4 +6,19 @@
 * {
   margin: 0;
   font-family: "regularfont";
+  color: white;
+  // background: black;
+}
+
+.content-wrapper,
+.timer-logo {
+  background: black;
+}
+
+.content-wrapper {
+  padding-bottom: 500px;
+}
+
+.ant-row {
+  width: 100%;
 }

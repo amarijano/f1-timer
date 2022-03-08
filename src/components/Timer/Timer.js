@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Row, Col } from "antd";
 import { useEffect } from "react/cjs/react.development";
 import "./Timer.scss";
 
@@ -10,12 +11,15 @@ const Timer = () => {
     response
       .json()
       .then((data) => {
+        console.log("data fetched");
         setDate(data.MRData.RaceTable.Races[0].date);
         setTime(data.MRData.RaceTable.Races[0].time);
       })
       .catch((err) => console.log(err));
   }
-  getSchedule();
+  useEffect(() => {
+    getSchedule();
+  }, []);
 
   const calculateTimeLeft = () => {
     const raceStart = date + "T" + time;
@@ -42,25 +46,51 @@ const Timer = () => {
     return () => clearInterval(timer);
   });
 
-  const timerComponents = [];
+  // const timerComponents = [];
 
-  Object.keys(timeLeft).forEach((interval) => {
-    /*if (!timeLeft[interval]) {
-      return;
-    }*/
+  // Object.keys(timeLeft).forEach((interval) => {
+  //   /*if (!timeLeft[interval]) {
+  //     return;
+  //   }*/
 
-    timerComponents.push(
-      <span className="num">
-        {timeLeft[interval]} {interval}{" "}
-      </span>
-    );
-  });
+  //   timerComponents.push(
+  //     <span className="num" key={interval}>
+  //       {timeLeft[interval]} {interval}{" "}
+  //     </span>
+  //   );
+  // });
 
   return (
     <div className="timer-Bar">
-      {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+      {
+        <Row
+          span={24}
+          gutter={64}
+          style={{ display: "flex", justifyContent: "center" }}
+          justify="space-between"
+        >
+          {Object.keys(timeLeft).map((el, index) => (
+            <Col span={6} key={index}>
+              <Row
+                className="numbers"
+                style={{ fontSize: "80px", color: "white" }}
+              >
+                {timeLeft[el]}
+              </Row>
+              <Row>{el}</Row>
+            </Col>
+          ))}
+        </Row>
+      }
     </div>
   );
 };
+
+//   return (
+//     <div className="timer-Bar">
+//       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+//     </div>
+//   );
+// };
 
 export default Timer;

@@ -21,8 +21,8 @@ const Navbar = () => {
     <nav className="navbar-items">
       <h1 className="navbar-logo">
         F1 Timer
-        <i className="timer-logo">
-          <FieldTimeOutlined />
+        <i className="timer-logo-navbar">
+          <FieldTimeOutlined className="timer-icon" />
         </i>
       </h1>
 
