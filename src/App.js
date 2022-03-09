@@ -1,7 +1,14 @@
+import "./App.scss";
+import Navbar from "./components/Navbar/Navbar";
+import Homepage from "./pages/homepage/Homepage";
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Timer</header>
+      {/* <Navbar /> */}
+      <div className="content">
+        <Homepage />
+      </div>
     </div>
   );
 }
