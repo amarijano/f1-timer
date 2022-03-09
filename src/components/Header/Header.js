@@ -1,27 +1,23 @@
-import "./navbar.scss";
-import { useSize } from "../../hooks";
-import { Menu } from "../Menu";
+import React, { memo } from "react";
+import { useState } from "react";
+import { menu } from "../../data/menu.js";
 import {
   FieldTimeOutlined,
   CloseOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
-import { Button } from "../Button/Button";
-import React, { Component } from "react";
+import "./header.scss";
 
-const Navbar = () => {
+const Header = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
   };
-  const width = useSize();
-  const handleLogin = () => {};
   return (
-    <nav className="navbar-items">
-      <h1 className="navbar-logo">
+    <div className="header-wrapper">
+      <h1 className="header-logo">
         F1 Timer
-        <i className="timer-logo-navbar">
+        <i className="timer-logo-header">
           <FieldTimeOutlined className="timer-icon" />
         </i>
       </h1>
@@ -36,7 +32,7 @@ const Navbar = () => {
         </i>
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        {Menu.map((item, index) => {
+        {menu.map((item, index) => {
           return (
             <li key={index}>
               <a className={item.cName} href={item.url}>
@@ -46,9 +42,8 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <Button>Sign up</Button>
-    </nav>
+    </div>
   );
 };
 
-export default Navbar;
+export default memo(Header);
