@@ -1,8 +1,8 @@
 import { HomepageBody } from "src/components/HomepageBody";
 import "./homepage.scss";
-
 import PageLayout from "../../layout/PageLayout";
-const Homepage = () => {
+
+function Homepage() {
   return (
     <>
       <PageLayout>
@@ -10,6 +10,6 @@ const Homepage = () => {
       </PageLayout>
     </>
   );
-};
+}
 
 export default Homepage;

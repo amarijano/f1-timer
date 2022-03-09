@@ -1,14 +1,10 @@
+import React, { memo } from "react";
 import "./App.scss";
 import Homepage from "./pages/homepage/Homepage";
+import { AppRouter } from "./Router";
 
 function App() {
-  return (
-    <div className="App">
-      <div className="content">
-        <Homepage />
-      </div>
-    </div>
-  );
+  return <AppRouter />;
 }
 
-export default App;
+export default memo(App);

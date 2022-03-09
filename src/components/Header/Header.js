@@ -1,5 +1,5 @@
-import React, { memo } from "react";
-import { useState } from "react";
+import React, { memo, useState } from "react";
+import { Link } from "react-router-dom";
 import { menu } from "../../data/menu.js";
 import {
   FieldTimeOutlined,
@@ -32,7 +32,8 @@ const Header = () => {
         </i>
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        {menu.map((item, index) => {
+        {/* {
+        menu.map((item, index) => {
           return (
             <li key={index}>
               <a className={item.cName} href={item.url}>
@@ -40,7 +41,12 @@ const Header = () => {
               </a>
             </li>
           );
-        })}
+        })} */}
+        <li>
+          <Link to="/Season2022" className="season">
+            Season 2022
+          </Link>
+        </li>
       </ul>
     </div>
   );
