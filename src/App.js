@@ -1,10 +1,15 @@
 import React, { memo } from "react";
-import "./App.scss";
 import Homepage from "./pages/homepage/Homepage";
 import { AppRouter } from "./Router";
+import { DataContextProvider } from "./context";
+import "./App.scss";
 
 function App() {
-  return <AppRouter />;
+  return (
+    <DataContextProvider>
+      <AppRouter />
+    </DataContextProvider>
+  );
 }
 
 export default memo(App);

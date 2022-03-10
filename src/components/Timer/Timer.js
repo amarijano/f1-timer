@@ -1,27 +1,10 @@
 import React, { memo, useState, useEffect } from "react";
 import { Row, Col } from "antd";
 import "./Timer.scss";
+import { useDataContext } from "src/context";
 
 const Timer = () => {
-  const [date, setDate] = useState(null);
-  const [time, setTime] = useState(null);
-  const raceStart = date + "T" + time;
-  const startDate = new Date(Date.parse(raceStart));
-
-  async function getSchedule() {
-    const response = await fetch("http://ergast.com/api/f1/2022.json");
-    response
-      .json()
-      .then((data) => {
-        console.log("data fetched");
-        setDate(data.MRData.RaceTable.Races[0].date);
-        setTime(data.MRData.RaceTable.Races[0].time);
-      })
-      .catch((err) => console.log(err));
-  }
-  useEffect(() => {
-    getSchedule();
-  }, []);
+  const { raceStart, startDate } = useDataContext();
 
   //console.log(startDate.getTimezoneOffset() / 60);
   //console.log(startDate);

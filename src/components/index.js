@@ -1,4 +1,4 @@
 export * from "./Header";
-export * from "./HomepageBody";
-export * from "./Season2022Body";
+export * from "../containers/HomepageBody";
+export * from "../containers/Season2022Body";
 export * from "./Timer";

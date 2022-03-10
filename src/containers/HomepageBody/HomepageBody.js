@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { FieldTimeOutlined } from "@ant-design/icons";
 import Timer from "../../components/Timer/Timer";
 import "./HomepageBody.scss";
+import { useDataContext } from "src/context";
 
 const HomepageBody = () => {
   return (

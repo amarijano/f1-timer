@@ -2,9 +2,10 @@
   background-color: rgb(225, 6, 0);
   height: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   .header-wrapper {
@@ -18,6 +19,7 @@
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
+  width: 180px;
 }
 @media screen and (max-width: 768px) {
   .header-logo {
@@ -39,7 +41,7 @@
 
 .nav-menu {
   background: rgb(225, 6, 0);
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
   list-style: none;
