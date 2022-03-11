@@ -1,10 +1,12 @@
 import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { menu } from "../../data/menu.js";
+import { Dropdown, Menu } from "antd";
 import {
   FieldTimeOutlined,
   CloseOutlined,
   MenuOutlined,
+  DownOutlined,
 } from "@ant-design/icons";
 import "./header.scss";
 
@@ -13,14 +15,24 @@ const Header = () => {
   const handleClick = () => {
     setClick(!click);
   };
+
+  const menu = (
+    <Menu className="dropdown-menu">
+      <Menu.Item>Races</Menu.Item>
+      <Menu.Item>Teams & Drivers</Menu.Item>
+    </Menu>
+  );
+
   return (
     <div className="header-wrapper">
-      <h1 className="header-logo">
-        F1 Timer
-        <i className="timer-logo-header">
-          <FieldTimeOutlined className="timer-icon" />
-        </i>
-      </h1>
+      <Link to="/homepage">
+        <h1 className="header-logo">
+          F1 Timer
+          <i className="timer-logo-header">
+            <FieldTimeOutlined className="timer-icon" />
+          </i>
+        </h1>
+      </Link>
 
       <div className="menu-icon" onClick={handleClick}>
         <i>
@@ -32,20 +44,17 @@ const Header = () => {
         </i>
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        {/* {
-        menu.map((item, index) => {
-          return (
-            <li key={index}>
-              <a className={item.cName} href={item.url}>
-                {item.title}
-              </a>
-            </li>
-          );
-        })} */}
         <li>
-          <Link to="/Season2022" className="season">
-            Season 2022
-          </Link>
+          <Dropdown
+            overlay={menu}
+            className="dropdown"
+            trigger={["hover"]}
+            placement="bottomRight"
+          >
+            <div className="ant-dropdown-link">
+              Season 2022 <DownOutlined />
+            </div>
+          </Dropdown>
         </li>
       </ul>
     </div>

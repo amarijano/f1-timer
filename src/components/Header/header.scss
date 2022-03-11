@@ -6,6 +6,7 @@
   align-items: center;
   font-size: 1.2rem;
   width: 100%;
+  flex-direction: row;
 }
 @media screen and (max-width: 768px) {
   .header-wrapper {
@@ -41,13 +42,15 @@
 
 .nav-menu {
   background: rgb(225, 6, 0);
-  display: flex;
+  //display: flex;
+  float: right;
+
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 70vw;
-  justify-content: end;
+  width: 180px;
+  justify-content: flex-end;
   margin-right: 2rem;
 }
 @media screen and (max-width: 768px) {
@@ -150,4 +153,22 @@
   .menu-open {
     color: #fff;
   }
+}
+
+.dropdown-menu {
+  float: right;
+}
+
+.ant-dropdown {
+  width: 172px;
+  margin-top: 24px;
+  float: right;
+  background: green;
+}
+
+.ant-dropdown-menu {
+  padding: 0;
+  text-align: left;
+  list-style: none;
+  float: left;
 }

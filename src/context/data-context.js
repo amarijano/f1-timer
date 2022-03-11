@@ -30,7 +30,9 @@ const DataContextProvider = (props) => {
 
   return (
     <DataContext.Provider value={{ raceStart, startDate }}>
-      <DataActionsContext.Provider>{children}</DataActionsContext.Provider>
+      <DataActionsContext.Provider value={{}}>
+        {children}
+      </DataActionsContext.Provider>
     </DataContext.Provider>
   );
 };
