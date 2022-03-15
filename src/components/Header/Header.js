@@ -16,12 +16,20 @@ const Header = () => {
     setClick(!click);
   };
 
-  const menu = (
-    <Menu className="dropdown-menu">
-      <Menu.Item>Races</Menu.Item>
-      <Menu.Item>Teams & Drivers</Menu.Item>
-    </Menu>
-  );
+  function toogles() {
+    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("drop").classList.toggle("act");
+  }
+
+  window.onclick = function (e) {
+    if (!e.target.matches(".drop")) {
+      let myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains("show")) {
+        myDropdown.classList.remove("show");
+        document.getElementById("drop").classList.remove("act");
+      }
+    }
+  };
 
   return (
     <div className="header-wrapper">
@@ -45,16 +53,15 @@ const Header = () => {
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li>
-          <Dropdown
-            overlay={menu}
-            className="dropdown"
-            trigger={["hover"]}
-            placement="bottomRight"
-          >
-            <div className="ant-dropdown-link">
-              Season 2022 <DownOutlined />
+          <div className="dropdown">
+            <div className="drop" id="drop" onClick={toogles}>
+              Season 2022
             </div>
-          </Dropdown>
+            <div className="dropdown-content" id="myDropdown">
+              <Link to="/races">Races</Link>
+              <Link to="/season2022">Teams & Drivers</Link>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

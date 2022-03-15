@@ -11,13 +11,15 @@ const DataContextProvider = (props) => {
   const [time, setTime] = useState(null);
   const raceStart = date + "T" + time;
   const startDate = new Date(Date.parse(raceStart));
+  const [races, setRaces] = useState([]);
 
   async function getSchedule() {
-    const response = await fetch("http://ergast.com/api/f1/2022.json");
+    const response = await fetch("http://ergast.com/api/f1/current/next.json");
     response
       .json()
       .then((data) => {
         console.log("data fetched");
+        console.log(data);
         setDate(data.MRData.RaceTable.Races[0].date);
         setTime(data.MRData.RaceTable.Races[0].time);
       })
@@ -25,11 +27,28 @@ const DataContextProvider = (props) => {
   }
 
   useEffect(() => {
+    getRaces();
     getSchedule();
   }, []);
 
+  async function getRaces() {
+    const response = await fetch("http://ergast.com/api/f1/2022.json");
+    response
+      .json()
+      .then((data) => {
+        console.log("data fetched");
+        console.log(data);
+        data.MRData.RaceTable.Races.forEach((el) => {
+          races.push({ raceName: el.raceName, raceDate: el.date });
+          setRaces(races);
+        });
+      })
+      .catch((err) => console.log("error"));
+    console.log(races);
+  }
+
   return (
-    <DataContext.Provider value={{ raceStart, startDate }}>
+    <DataContext.Provider value={{ raceStart, startDate, races }}>
       <DataActionsContext.Provider value={{}}>
         {children}
       </DataActionsContext.Provider>
