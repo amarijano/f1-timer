@@ -12,8 +12,11 @@ const DataContextProvider = (props) => {
   const raceStart = date + "T" + time;
   const startDate = new Date(Date.parse(raceStart));
   const [races, setRaces] = useState([]);
+  const [isScheduleLoading, setIsScheduleLoading] = useState(false);
+  const [areRacesLoading, setAreRacesLoading] = useState(false);
 
   async function getSchedule() {
+    setIsScheduleLoading(true);
     const response = await fetch("http://ergast.com/api/f1/current/next.json");
     response
       .json()
@@ -23,15 +26,23 @@ const DataContextProvider = (props) => {
         setDate(data.MRData.RaceTable.Races[0].date);
         setTime(data.MRData.RaceTable.Races[0].time);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsScheduleLoading(false);
+      });
   }
 
   useEffect(() => {
-    getRaces();
     getSchedule();
   }, []);
 
+  useEffect(() => {
+    getRaces();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   async function getRaces() {
+    setAreRacesLoading(true);
     const response = await fetch("http://ergast.com/api/f1/2022.json");
     response
       .json()
@@ -43,12 +54,23 @@ const DataContextProvider = (props) => {
           setRaces(races);
         });
       })
-      .catch((err) => console.log("error"));
+      .catch((err) => console.log("error"))
+      .finally(() => {
+        setAreRacesLoading(false);
+      });
     console.log(races);
   }
 
   return (
-    <DataContext.Provider value={{ raceStart, startDate, races }}>
+    <DataContext.Provider
+      value={{
+        raceStart,
+        startDate,
+        races,
+        isScheduleLoading,
+        areRacesLoading,
+      }}
+    >
       <DataActionsContext.Provider value={{}}>
         {children}
       </DataActionsContext.Provider>

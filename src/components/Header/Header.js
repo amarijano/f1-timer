@@ -1,12 +1,9 @@
 import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
-import { menu } from "../../data/menu.js";
-import { Dropdown, Menu } from "antd";
 import {
   FieldTimeOutlined,
   CloseOutlined,
   MenuOutlined,
-  DownOutlined,
 } from "@ant-design/icons";
 import "./header.scss";
 
