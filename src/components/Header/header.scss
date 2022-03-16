@@ -1,26 +1,29 @@
-.navbar-items {
+.header-wrapper {
   background-color: rgb(225, 6, 0);
-  height: 80px;
+  height: 8.5%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
+  width: 100%;
+  flex-direction: row;
 }
 @media screen and (max-width: 768px) {
-  .navbar-items {
+  .header-wrapper {
     position: relative;
   }
 }
 
-.navbar-logo {
+.header-logo {
   background: rgb(225, 6, 0);
   color: #fff;
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
+  width: 180px;
 }
 @media screen and (max-width: 768px) {
-  .navbar-logo {
+  .header-logo {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,7 +31,7 @@
   }
 }
 
-.timer-logo-navbar {
+.timer-logo-header {
   background: rgb(225, 6, 0);
   margin-left: 0.5rem;
   font-size: 1.6rem;
@@ -39,13 +42,15 @@
 
 .nav-menu {
   background: rgb(225, 6, 0);
-  display: grid;
+  //display: flex;
+  float: right;
+
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 70vw;
-  justify-content: end;
+  width: 180px;
+  justify-content: flex-end;
   margin-right: 2rem;
 }
 @media screen and (max-width: 768px) {
@@ -148,8 +153,68 @@
   .menu-open {
     color: #fff;
   }
+}
 
-  Button {
-    display: none;
-  }
+.dropdown-menu {
+  float: right;
+}
+
+.ant-dropdown {
+  width: 172px;
+  margin-top: 24px;
+  float: right;
+  background: green;
+}
+
+.ant-dropdown-menu {
+  padding: 0;
+  text-align: left;
+  list-style: none;
+  float: left;
+}
+
+.dropdown-content {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(255, 255, 255);
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(63, 63, 63);
+}
+
+.show {
+  display: block;
+}
+
+.drop:hover {
+  cursor: pointer;
+  //background-color: rgb(0, 0, 0);
+}
+
+.drop {
+  line-height: 80px;
+  font-size: 26px;
+  height: 80px;
+  width: 212px;
+  background-color: rgb(225, 6, 0);
+}
+
+.act {
+  background-color: black;
 }

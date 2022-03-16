@@ -1,3 +1,34 @@
+// html body {
+//   width: 100vw;
+//   height: 100vh;
+// }
+// html {
+//   height: 100vh;
+//   background: black;
+// }
+
+body {
+  height: 100vh;
+}
+
+.root {
+  height: 100%;
+}
+
+.ant-layout {
+  height: 100%;
+}
+
+.ant-layout-content {
+  background-color: black;
+  height: 91.5%;
+}
+
+// .root {
+//   width: 100vw;
+//   height: 100vh;
+// }
+
 @font-face {
   font-family: "regularfont";
   src: url("regular.woff2") format("woff2");
@@ -7,7 +38,6 @@
   margin: 0;
   font-family: "regularfont";
   color: white;
-  // background: black;
 }
 
 .content-wrapper,
@@ -15,10 +45,11 @@
   background: black;
 }
 
-.content-wrapper {
-  padding-bottom: 500px;
-}
-
 .ant-row {
   width: 100%;
+  margin: 0px !important;
+}
+
+a {
+  text-decoration: none;
 }

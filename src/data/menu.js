@@ -1,20 +1,14 @@
-import "./menu.scss";
-const Menu = [
+export const menu = [
   {
     title: "Home",
-    url: "#",
     cName: "nav-links",
   },
   {
-    title: "Contact us",
-    url: "#",
+    title: "Season 2022",
     cName: "nav-links",
   },
   {
     title: "Sign up",
-    url: "#",
     cName: "nav-links-mobile",
   },
 ];
-
-export default Menu;

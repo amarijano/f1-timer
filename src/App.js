@@ -1,16 +1,14 @@
+import React, { memo } from "react";
+import { AppRouter } from "./Router";
+import { DataContextProvider } from "./context";
 import "./App.scss";
-import Navbar from "./components/Navbar/Navbar";
-import Homepage from "./pages/homepage/Homepage";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Navbar /> */}
-      <div className="content">
-        <Homepage />
-      </div>
-    </div>
+    <DataContextProvider>
+      <AppRouter />
+    </DataContextProvider>
   );
 }
 
-export default App;
+export default memo(App);
