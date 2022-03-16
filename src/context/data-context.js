@@ -50,7 +50,18 @@ const DataContextProvider = (props) => {
         console.log("data fetched");
         console.log(data);
         data.MRData.RaceTable.Races.forEach((el) => {
-          races.push({ raceName: el.raceName, raceDate: el.date });
+          races.push({
+            raceName: el.raceName,
+            raceDate: el.date,
+            raceRound: el.round,
+            raceNameId: el.raceName.replace(/\s+/g, ""),
+            raceLocation: el.Circuit.Location,
+            raceFirstPr: el.FirstPractice,
+            raceSecondPr: el.SecondPractice,
+            raceThirdPr: el.ThirdPractice,
+            raceQualy: el.Qualifying,
+            raceSprint: el.Sprint,
+          });
           setRaces(races);
         });
       })
