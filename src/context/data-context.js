@@ -12,8 +12,10 @@ const DataContextProvider = (props) => {
   const raceStart = date + "T" + time;
   const startDate = new Date(Date.parse(raceStart));
   const [races, setRaces] = useState([]);
+  const [results, setResults] = useState([]);
   const [isScheduleLoading, setIsScheduleLoading] = useState(false);
   const [areRacesLoading, setAreRacesLoading] = useState(false);
+  const [areResultsLoading, setAreResultsLoading] = useState(false);
 
   async function getSchedule() {
     setIsScheduleLoading(true);
@@ -39,6 +41,10 @@ const DataContextProvider = (props) => {
   useEffect(() => {
     getRaces();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    getResults();
   }, []);
 
   async function getRaces() {
@@ -72,14 +78,41 @@ const DataContextProvider = (props) => {
     console.log(races);
   }
 
+  async function getResults() {
+    setAreResultsLoading(true);
+    const response = await fetch(
+      "http://ergast.com/api/f1/current/results.json?limit=440"
+    );
+    response
+      .json()
+      .then((data) => {
+        console.log("data fetched");
+        console.log(data.MRData.RaceTable.Races);
+        data.MRData.RaceTable.Races.forEach((el) => {
+          results.push({
+            results: el.Results,
+            date: el.date,
+            raceId: el.raceName.replace(/\s+/g, ""),
+          });
+        });
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setAreResultsLoading(false);
+        console.log(results);
+      });
+  }
+
   return (
     <DataContext.Provider
       value={{
         raceStart,
         startDate,
         races,
+        results,
         isScheduleLoading,
         areRacesLoading,
+        areResultsLoading,
       }}
     >
       <DataActionsContext.Provider value={{}}>

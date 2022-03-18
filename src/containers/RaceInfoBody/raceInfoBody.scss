@@ -7,7 +7,8 @@
   background: rgb(255, 255, 255);
 
   //   -webkit-box-shadow: inset 0 0 40px 20px rgb(0, 0, 0);
-  box-shadow: inset 0 0 70px 80px rgb(0, 0, 0);
+  box-shadow: inset 0 0 55px 80px rgb(0, 0, 0);
+  width: 700px;
 }
 
 .ant-col-info {
@@ -21,11 +22,18 @@
 .race-info-col {
   margin-top: 90px;
   padding-left: 80px;
+  width: 400px;
+}
+.race-img-col {
+  width: 700px;
+}
+.race-results-col {
+  width: 700px;
 }
 .ant-row-info-title {
   margin-top: 0px !important;
   display: flex;
-  padding-top: 70px !important;
+  padding-top: 50px !important;
   padding-left: 50px;
   font-size: 44px;
   width: 700px !important;
@@ -34,8 +42,10 @@
 .back {
   font-size: 40px;
   width: 40px;
+  padding-top: 30px;
+  margin-left: 50px;
   cursor: pointer;
-  margin-top: 80px;
-  margin-left: 40px;
-  cursor: pointer;
+}
+.back:hover {
+  color: rgb(225, 6, 0);
 }

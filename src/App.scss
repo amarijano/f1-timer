@@ -21,7 +21,7 @@ body {
 
 .ant-layout-content {
   background-color: black;
-  height: 91.5%;
+  height: 80%;
 }
 
 // .root {
@@ -41,8 +41,10 @@ body {
 }
 
 .content-wrapper,
+.content-wrapper-info,
 .timer-logo {
   background: black;
+  background-color: black !important;
 }
 
 .ant-row {
