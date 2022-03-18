@@ -3,7 +3,11 @@
   //   background: white;
   //   background-color: #000000;
   //   background-image: linear-gradient(135deg, #000000 0%, #ffffff 74%);
-  background: radial-gradient(ellipse 50% 220px, white, black);
+  //   background: radial-gradient(ellipse 50% 220px, white, black);
+  background: rgb(255, 255, 255);
+
+  //   -webkit-box-shadow: inset 0 0 40px 20px rgb(0, 0, 0);
+  box-shadow: inset 0 0 70px 80px rgb(0, 0, 0);
 }
 
 .ant-col-info {
@@ -12,7 +16,7 @@
 .ant-row-info {
   display: flex;
   width: 100%;
-  font-size: 24px;
+  font-size: 25px;
 }
 .race-info-col {
   margin-top: 90px;
@@ -25,4 +29,13 @@
   padding-left: 50px;
   font-size: 44px;
   width: 700px !important;
+}
+
+.back {
+  font-size: 40px;
+  width: 40px;
+  cursor: pointer;
+  margin-top: 80px;
+  margin-left: 40px;
+  cursor: pointer;
 }

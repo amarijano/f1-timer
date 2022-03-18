@@ -1,8 +1,9 @@
 import React, { memo } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDataContext } from "src/context";
 import { Row, Col } from "antd";
 import "./raceInfoBody.scss";
+import { DoubleLeftOutlined } from "@ant-design/icons";
 
 const RaceInfoBody = () => {
   const { raceNameId } = useParams();
@@ -21,9 +22,27 @@ const RaceInfoBody = () => {
     "AustrianGrandPrix",
   ];
 
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/races");
+  };
+
+  function myTime(el) {
+    const raceStart = el.date + "T" + el.time;
+    const startDate = new Date(Date.parse(raceStart));
+    return `${startDate.getHours()}:${
+      startDate.getMinutes() === 0
+        ? "0" + startDate.getMinutes()
+        : startDate.getMinutes()
+    }`;
+  }
+
   return (
     <>
-      {race && (
+      {!race && <div className="loader" />}
+      {!raceImg && <div className="loader" />}
+      {race && raceImg && (
         <div className="content-wrapper-info">
           {!areRacesLoading && (
             <>
@@ -41,47 +60,50 @@ const RaceInfoBody = () => {
                   <img className="track-img" src={raceImg} />
                 </Col>
                 <Col span={12} className="race-info-col">
-                  <Row style={{ paddingBottom: "30px" }}>
-                    First Practice
+                  <Row style={{ paddingBottom: "40px" }}>
+                    <u>FIRST PRACTICE</u>
                     <br />
-                    {race.raceFirstPr.time}
+                    {myTime(race.raceFirstPr)}
                     {", "}
                     {race.raceFirstPr.date}
                   </Row>
-                  <Row style={{ paddingBottom: "30px" }}>
-                    Second Practice
+                  <Row style={{ paddingBottom: "40px" }}>
+                    <u>SECOND PRACTICE</u>
                     <br />
-                    {race.raceSecondPr.time}
+                    {myTime(race.raceSecondPr)}
                     {", "}
                     {race.raceSecondPr.date}
                   </Row>
                   {!notIn.includes(raceNameId) && (
-                    <Row style={{ paddingBottom: "30px" }}>
-                      Third Practice
+                    <Row style={{ paddingBottom: "40px" }}>
+                      <u>THIRD PRACTICE</u>
                       <br />
-                      {race.raceThirdPr.time}
+                      {myTime(race.raceThirdPr)}
                       {", "}
                       {race.raceThirdPr.date}
                     </Row>
                   )}
                   {notIn.includes(raceNameId) && (
-                    <Row style={{ paddingBottom: "30px" }}>
-                      Sprint
+                    <Row style={{ paddingBottom: "40px" }}>
+                      <u>SPRINT</u>
                       <br />
-                      {race.raceSprint.time}
+                      {myTime(race.raceSprint)}
                       {", "}
                       {race.raceSprint.date}
                     </Row>
                   )}
                   <Row>
-                    Qualifying
+                    <u style={{ color: "rgb(225,6,0" }}>QUALIFYING</u>
                     <br />
-                    {race.raceQualy.time}
+                    {myTime(race.raceQualy)}
                     {", "}
                     {race.raceQualy.date}
                   </Row>
                 </Col>
               </Row>
+              <div className="back" onClick={handleClick}>
+                {"<<"}
+              </div>
             </>
           )}
         </div>

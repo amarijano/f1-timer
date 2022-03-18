@@ -65,7 +65,7 @@ const DataContextProvider = (props) => {
           setRaces(races);
         });
       })
-      .catch((err) => console.log("error"))
+      .catch((err) => console.log(err))
       .finally(() => {
         setAreRacesLoading(false);
       });
