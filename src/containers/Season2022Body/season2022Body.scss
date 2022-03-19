@@ -10,15 +10,27 @@ td {
   font-size: 45px;
   // padding-bottom: 30px;
   padding-top: 30px;
+  @media only screen and (max-width: 420px) {
+    font-size: 25px;
+    height: 60px;
+  }
 }
 
 table {
-  // width: 50%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 100px;
   border-collapse: collapse;
   margin-bottom: 80px !important;
+  @media only screen and (max-width: 420px) {
+    width: 80%;
+  }
+}
+
+.teamdrivers-table {
+  @media only screen and (max-width: 420px) {
+    font-size: 10px;
+  }
 }
 
 .teamdrivers-table tbody tr:last-child {

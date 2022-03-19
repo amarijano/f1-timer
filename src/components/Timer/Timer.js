@@ -2,7 +2,6 @@ import React, { memo, useState, useEffect } from "react";
 import { Row, Col } from "antd";
 import "./Timer.scss";
 import { useDataContext } from "src/context";
-import useSize from "../../hooks/useSize";
 
 const Timer = () => {
   const { raceStart, startDate, screenWidth } = useDataContext();
@@ -12,7 +11,7 @@ const Timer = () => {
   //   const width = useSize();
   //   setScreenWidth(width);
   // }, []);
-  console.log(screenWidth);
+  // console.log(screenWidth);
   //console.log(startDate.getTimezoneOffset() / 60);
   //console.log(startDate);
   const calculateTimeLeft = () => {
@@ -55,7 +54,7 @@ const Timer = () => {
       {
         <Row
           span={24}
-          gutter={screenWidth > 470 ? 64 : 28}
+          gutter={screenWidth > 520 ? 64 : 28}
           style={{ display: "flex", justifyContent: "center" }}
         >
           {Object.keys(timeLeft).map((el, index) => (

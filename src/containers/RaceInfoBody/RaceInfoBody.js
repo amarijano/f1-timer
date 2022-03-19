@@ -1,9 +1,8 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDataContext } from "src/context";
 import { Row, Col } from "antd";
 import "./raceInfoBody.scss";
-import { DoubleLeftOutlined } from "@ant-design/icons";
 import { ResultsTable } from "../../components/ResultsTable";
 
 const RaceInfoBody = () => {
@@ -12,7 +11,6 @@ const RaceInfoBody = () => {
     useDataContext();
   const history = useHistory();
 
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const raceResultDate = results.find((el) => el.raceId === raceNameId)?.date;
 
   const images = require.context("../../data/images", true);
@@ -74,7 +72,7 @@ const RaceInfoBody = () => {
           </Row>
           <Row justify="space-between" gutter={40} className="ant-row-info">
             <Col span={8} className="race-img-col">
-              <img className="track-img" src={raceImg} />
+              <img className="track-img" alt="trackImage" src={raceImg} />
             </Col>
             <Col span={8} className="race-info-col">
               <Row style={{ paddingBottom: "40px", paddingLeft: "80px" }}>

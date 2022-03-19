@@ -16,7 +16,7 @@ const RacesBody = () => {
     <div className="content-wrapper">
       {areRacesLoading && <div className="loader" />}
       {!areRacesLoading && (
-        <table style={{ width: "27%" }}>
+        <table className="races-table">
           <thead className="season-table-header">
             <tr>
               <th style={{ width: "60%", borderRight: "" }}>RACE</th>

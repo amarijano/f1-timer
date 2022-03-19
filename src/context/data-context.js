@@ -44,6 +44,7 @@ const DataContextProvider = (props) => {
 
   useEffect(() => {
     getSchedule();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     getRaces();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     getResults();
@@ -99,6 +100,7 @@ const DataContextProvider = (props) => {
             date: el.date,
             raceId: el.raceName.replace(/\s+/g, ""),
           });
+          setResults(results);
         });
       })
       .catch((err) => console.log(err))

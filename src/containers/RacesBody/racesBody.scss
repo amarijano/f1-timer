@@ -1,3 +1,15 @@
+.races-table {
+  width: 27%;
+  font-size: 15px;
+  @media only screen and (max-width: 420px) {
+    font-size: 11px;
+    width: 80%;
+  }
+  @media only screen and (min-width: 421px) and (max-width: 1650px) {
+    width: auto;
+  }
+}
+
 .loader {
   position: absolute;
   top: 50%;

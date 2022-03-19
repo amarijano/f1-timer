@@ -1,67 +1,51 @@
 import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  FieldTimeOutlined,
-  CloseOutlined,
-  MenuOutlined,
-} from "@ant-design/icons";
+import { FieldTimeOutlined, UserOutlined } from "@ant-design/icons";
+import { Avatar } from "antd";
 import "./header.scss";
+import { useDataContext } from "src/context";
 
 const Header = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => {
-    setClick(!click);
-  };
-
-  function toogles() {
-    document.getElementById("myDropdown").classList.toggle("show");
-    document.getElementById("drop").classList.toggle("act");
-  }
-
-  window.onclick = function (e) {
-    if (!e.target.matches(".drop")) {
-      let myDropdown = document.getElementById("myDropdown");
-      if (myDropdown.classList.contains("show")) {
-        myDropdown.classList.remove("show");
-        document.getElementById("drop").classList.remove("act");
-      }
-    }
-  };
-
+  const { screenWidth } = useDataContext();
   return (
-    <div className="header-wrapper">
-      <Link to="/homepage">
-        <h1 className="header-logo">
-          F1 Timer
-          <i className="timer-logo-header">
-            <FieldTimeOutlined className="timer-icon" />
-          </i>
-        </h1>
-      </Link>
+    <>
+      {screenWidth < 769 && (
+        <div className="header-wrapper">
+          <Link to="/homepage">
+            <i className="timer-logo-header">
+              <FieldTimeOutlined className="timer-icon" />
+            </i>
+          </Link>
 
-      <div className="menu-icon" onClick={handleClick}>
-        <i>
-          {click ? (
-            <CloseOutlined className="menu-close" />
-          ) : (
-            <MenuOutlined className="menu-open" />
-          )}
-        </i>
-      </div>
-      <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <li>
-          <div className="dropdown">
-            <div className="drop" id="drop" onClick={toogles}>
-              Season 2022
-            </div>
-            <div className="dropdown-content" id="myDropdown">
-              <Link to="/races">Races</Link>
-              <Link to="/season2022">Teams & Drivers</Link>
-            </div>
+          <div className="header-left-menu">
+            <Link to="/races">Races</Link>
+            <Link to="/season2022">Teams & Drivers</Link>
           </div>
-        </li>
-      </ul>
-    </div>
+
+          <div className="header-right-menu">
+            <Avatar size={64} icon={<UserOutlined />} />
+          </div>
+        </div>
+      )}
+      {screenWidth > 768 && (
+        <div className="header-wrapper">
+          <div className="header-left-menu">
+            <Link to="/races">Races</Link>
+            <Link to="/season2022">Teams & Drivers</Link>
+          </div>
+
+          <Link to="/homepage">
+            <i className="timer-logo-header">
+              <FieldTimeOutlined className="timer-icon" />
+            </i>
+          </Link>
+
+          <div className="header-right-menu">
+            <Avatar size={64} icon={<UserOutlined />} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
