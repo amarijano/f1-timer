@@ -18,7 +18,7 @@ const Footer = () => {
       <p className="footer-text">© Copyright by AM Industries</p>
       <p className="footer-icon">
         <a href="https://github.com/amarijano">
-          <GithubOutlined />
+          <GithubOutlined style={{ color: "white" }} />
         </a>
       </p>
     </div>

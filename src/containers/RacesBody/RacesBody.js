@@ -16,7 +16,7 @@ const RacesBody = () => {
     <div className="content-wrapper">
       {areRacesLoading && <div className="loader" />}
       {!areRacesLoading && (
-        <table style={{ width: "35%" }}>
+        <table style={{ width: "27%" }}>
           <thead className="season-table-header">
             <tr>
               <th style={{ width: "60%", borderRight: "" }}>RACE</th>
@@ -38,7 +38,7 @@ const RacesBody = () => {
                 <td>{el.raceDate}</td>
                 <td style={{ width: "10%" }}>
                   <Link to={`/races/${el.raceNameId}`}>
-                    <InfoCircleOutlined />
+                    <InfoCircleOutlined style={{ color: "whitesmoke" }} />
                   </Link>
                 </td>
               </tr>

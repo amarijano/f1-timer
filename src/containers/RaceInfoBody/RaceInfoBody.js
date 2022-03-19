@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDataContext } from "src/context";
 import { Row, Col } from "antd";
@@ -7,26 +7,29 @@ import { DoubleLeftOutlined } from "@ant-design/icons";
 import { ResultsTable } from "../../components/ResultsTable";
 
 const RaceInfoBody = () => {
-  const { raceNameId } = useParams();
-
+  let { raceNameId } = useParams();
   const { races, areRacesLoading, results, areResultsLoading } =
     useDataContext();
+  const history = useHistory();
 
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const raceResultDate = results.find((el) => el.raceId === raceNameId)?.date;
 
   const images = require.context("../../data/images", true);
   const race = races.find((el) => el.raceNameId === raceNameId);
-  console.log(race);
+  console.log("race", race);
   console.log(raceNameId);
   let raceImg = images(`./${raceNameId}.png`).default;
 
   const sprintRaces = [
-    "BrazilianGrandPrix",
+    "SãoPauloGrandPrix",
     "EmiliaRomagnaGrandPrix",
     "AustrianGrandPrix",
   ];
 
-  const history = useHistory();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleClick = () => {
     history.push("/races");
@@ -46,7 +49,7 @@ const RaceInfoBody = () => {
     <>
       {!race && <div className="loader" />}
       {!raceImg && <div className="loader" />}
-      {race && raceImg && !areRacesLoading && (
+      {race && raceImg && !areRacesLoading && !areResultsLoading && (
         <div className="content-wrapper-info">
           <Row>
             <div className="back" onClick={handleClick}>
@@ -56,11 +59,18 @@ const RaceInfoBody = () => {
           <Row
             className="ant-row-info-title"
             style={{ marginTop: "40px" }}
-            gutter={40}
+            // gutter={40}
           >
-            {race.raceLocation.country}
-            {", "}
-            {race.raceLocation.locality}
+            <Col span={8}>
+              {race.raceLocation.country}
+              {", "}
+              {race.raceLocation.locality}
+            </Col>
+            {raceResultDate && (
+              <Col span={8} offset={8} style={{ fontSize: "30px" }}>
+                Last time out {raceResultDate}
+              </Col>
+            )}
           </Row>
           <Row justify="space-between" gutter={40} className="ant-row-info">
             <Col span={8} className="race-img-col">

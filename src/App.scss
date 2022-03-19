@@ -8,20 +8,23 @@
 // }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  color: white;
 }
 
 .root {
-  height: 100%;
+  min-height: 100vh;
 }
 
 .ant-layout {
-  height: 100%;
+  min-height: 100vh;
+  background-color: black;
 }
 
 .ant-layout-content {
+  min-height: calc(100vh - 180px);
   background-color: black;
-  height: 80%;
+  // height: 80%;
 }
 
 // .root {
@@ -37,7 +40,7 @@ body {
 * {
   margin: 0;
   font-family: "regularfont";
-  color: white;
+  // color: white;
 }
 
 .content-wrapper,
@@ -48,7 +51,7 @@ body {
 }
 
 .ant-row {
-  width: 100%;
+  max-width: 100vw;
   margin-left: 0px !important;
   margin-right: 0px !important;
 }

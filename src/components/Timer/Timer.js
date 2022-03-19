@@ -2,10 +2,17 @@ import React, { memo, useState, useEffect } from "react";
 import { Row, Col } from "antd";
 import "./Timer.scss";
 import { useDataContext } from "src/context";
+import useSize from "../../hooks/useSize";
 
 const Timer = () => {
-  const { raceStart, startDate } = useDataContext();
+  const { raceStart, startDate, screenWidth } = useDataContext();
+  // const [screenWidth, setScreenWidth] = useState();
 
+  // useEffect(() => {
+  //   const width = useSize();
+  //   setScreenWidth(width);
+  // }, []);
+  console.log(screenWidth);
   //console.log(startDate.getTimezoneOffset() / 60);
   //console.log(startDate);
   const calculateTimeLeft = () => {
@@ -44,27 +51,22 @@ const Timer = () => {
   };
 
   return (
-    <div className="timer-Bar">
+    <div className="timer-bar">
       {
         <Row
           span={24}
-          gutter={64}
+          gutter={screenWidth > 470 ? 64 : 28}
           style={{ display: "flex", justifyContent: "center" }}
         >
           {Object.keys(timeLeft).map((el, index) => (
             <Col span={6} key={index}>
-              <Row
-                className="numbers"
-                style={{ fontSize: "80px", color: "rgb(225, 6, 0)" }}
-              >
-                {timeLeft[el]}
-              </Row>
+              <Row className="numbers">{timeLeft[el]}</Row>
               <Row>{el}</Row>
             </Col>
           ))}
         </Row>
       }
-      <p style={{ paddingTop: "50px", justifyContent: "center" }}>
+      <p className="timer-info">
         Lights out at {raceInfo.startHour}:{raceInfo.startMin} on{" "}
         {raceInfo.startDay}, {raceInfo.startMonth} {raceInfo.startDate}
       </p>

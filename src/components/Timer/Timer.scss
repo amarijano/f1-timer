@@ -1,8 +1,28 @@
-.timer-Bar {
+.timer-bar {
   font-size: 30px;
   text-align: center;
+  @media only screen and (max-width: 420px) {
+    font-size: 12px;
+  }
 }
 
 .time-left {
   width: 30px;
+}
+
+.timer-info {
+  padding-top: 50px;
+  justify-content: center;
+  @media only screen and (max-width: 420px) {
+    font-size: 25px;
+  }
+}
+
+.numbers {
+  font-size: 80px;
+  color: rgb(225, 6, 0);
+  @media only screen and (max-width: 420px) {
+    font-size: 40px;
+    padding: 0 !important;
+  }
 }

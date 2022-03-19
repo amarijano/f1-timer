@@ -5,22 +5,20 @@ import "./homepageBody.scss";
 import { useDataContext } from "src/context";
 
 const HomepageBody = () => {
-  const { isScheduleLoading } = useDataContext();
+  const { isScheduleLoading, nextRaceName } = useDataContext();
 
   return (
     <div className="content-wrapper">
       <h1 className="title">
-        F1 TIMER
+        F1 TIMER{" "}
         <i className="timer-logo">
-          <FieldTimeOutlined style={{ fontSize: "7rem" }} />
+          <FieldTimeOutlined className="timer-logo-icon" />
         </i>
       </h1>
       {isScheduleLoading && <div className="loader" />}
       {!isScheduleLoading && (
         <>
-          <h2 className="race-name">
-            FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2022
-          </h2>
+          <h2 className="race-name">FORMULA 1 {nextRaceName}</h2>
           <Timer />
         </>
       )}

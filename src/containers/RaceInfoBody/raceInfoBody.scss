@@ -1,5 +1,5 @@
 .track-img {
-  margin-top: 100px;
+  margin-top: 60px;
   //   background: white;
   //   background-color: #000000;
   //   background-image: linear-gradient(135deg, #000000 0%, #ffffff 74%);
@@ -36,7 +36,10 @@
   padding-top: 50px !important;
   padding-left: 50px;
   font-size: 44px;
-  width: 700px !important;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  padding-right: 65px;
+  // width: 700px !important;
 }
 
 .back {

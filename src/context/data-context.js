@@ -1,12 +1,15 @@
 import React, { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useContextFactory } from "./context-factory";
+import useSize from "../hooks/useSize";
 
 const DataContext = createContext();
 const DataActionsContext = createContext();
 
 const DataContextProvider = (props) => {
   const { children } = props;
+  const screenWidth = useSize();
+  const [nextRaceName, setNextRaceName] = useState();
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
   const raceStart = date + "T" + time;
@@ -27,6 +30,11 @@ const DataContextProvider = (props) => {
         console.log(data);
         setDate(data.MRData.RaceTable.Races[0].date);
         setTime(data.MRData.RaceTable.Races[0].time);
+        setNextRaceName(
+          data.MRData.RaceTable.Races[0].raceName +
+            " " +
+            data.MRData.RaceTable.Races[0].season
+        );
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -36,14 +44,8 @@ const DataContextProvider = (props) => {
 
   useEffect(() => {
     getSchedule();
-  }, []);
-
-  useEffect(() => {
     getRaces();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
     getResults();
   }, []);
 
@@ -60,7 +62,10 @@ const DataContextProvider = (props) => {
             raceName: el.raceName,
             raceDate: el.date,
             raceRound: el.round,
-            raceNameId: el.raceName.replace(/\s+/g, ""),
+            raceNameId:
+              el.raceName === "Brazilian Grand Prix"
+                ? "SãoPauloGrandPrix"
+                : el.raceName.replace(/\s+/g, ""),
             raceLocation: el.Circuit.Location,
             raceFirstPr: el.FirstPractice,
             raceSecondPr: el.SecondPractice,
@@ -113,6 +118,8 @@ const DataContextProvider = (props) => {
         isScheduleLoading,
         areRacesLoading,
         areResultsLoading,
+        nextRaceName,
+        screenWidth,
       }}
     >
       <DataActionsContext.Provider value={{}}>
