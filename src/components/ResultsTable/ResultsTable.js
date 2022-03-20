@@ -23,9 +23,7 @@ const ResultsTable = () => {
                 <th>POS</th>
                 <th />
                 <th>DRIVER</th>
-                <th style={{ paddingLeft: "20px", paddingRight: "20px" }}>
-                  CONSTRUCTOR
-                </th>
+                <th className="results-table-constructor-col">CONSTRUCTOR</th>
                 <th>POINTS</th>
               </tr>
             </thead>

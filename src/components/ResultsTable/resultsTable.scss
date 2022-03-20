@@ -1,11 +1,17 @@
 .results-table-header {
   font-size: 25px !important;
+  @media only screen and (max-width: 420px) {
+    font-size: 15px !important;
+  }
 }
 // .results-table-header th {
 //   padding-right: 10px;
 // }
 .results-table-body {
   font-size: 14px;
+  @media only screen and (max-width: 420px) {
+    font-size: 10px;
+  }
 }
 .race-not-held {
   text-align: center;
@@ -15,4 +21,11 @@
 .warning-icon {
   color: rgb(225, 6, 0) !important;
   font-size: 80px;
+}
+
+.results-table-constructor-col {
+  padding: 0 20px 0 20px;
+  @media only screen and (max-width: 420px) {
+    padding: 0 10px 0 0;
+  }
 }

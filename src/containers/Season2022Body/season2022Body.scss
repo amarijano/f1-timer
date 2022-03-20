@@ -23,12 +23,12 @@ table {
   border-collapse: collapse;
   margin-bottom: 80px !important;
   @media only screen and (max-width: 420px) {
-    width: 80%;
   }
 }
 
 .teamdrivers-table {
   @media only screen and (max-width: 420px) {
+    width: 80%;
     font-size: 10px;
   }
 }
