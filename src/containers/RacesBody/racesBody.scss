@@ -1,46 +1,26 @@
-td {
-  //border: 1px solid rgb(255, 255, 255);
-  //border-bottom: 1px solid rgb(255, 255, 255);
-  //border-collapse: collapse;
-  text-align: center;
-  height: 30px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-th {
-  height: 100px;
-  font-size: 45px;
-  padding-bottom: 30px;
-  padding-top: 50px;
-}
-
-table {
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 100px;
-  border-collapse: collapse;
-}
-
-tr {
-  border-bottom: 1px solid rgb(255, 255, 255);
+.races-table {
+  width: 27%;
+  font-size: 15px;
+  @media only screen and (max-width: 420px) {
+    font-size: 11px;
+    width: 80%;
+  }
+  @media only screen and (min-width: 421px) and (max-width: 1650px) {
+    width: auto;
+  }
 }
 
 .loader {
   position: absolute;
   top: 50%;
   left: 50%;
-  //text-align: center;
-}
-
-.loader {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  //position: relative;
   transform: rotate(45deg);
   background: #fff;
 }
+
 .loader::before {
   content: "";
   box-sizing: border-box;
@@ -67,4 +47,8 @@ tr {
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
+}
+
+.anticon-info-circle {
+  font-size: 25px;
 }

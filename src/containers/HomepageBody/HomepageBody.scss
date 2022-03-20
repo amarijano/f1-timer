@@ -3,10 +3,33 @@
   text-align: center;
   padding-top: 30px;
   padding-bottom: 80px;
+  @media only screen and (max-width: 499px) {
+    font-size: 45px;
+  }
+  @media only screen and (min-width: 500px) and (max-width: 800px) {
+    font-size: 50px;
+  }
+}
+
+.timer-logo-icon {
+  font-size: 7rem;
+  @media only screen and (max-width: 499px) {
+    font-size: 45px;
+  }
+  @media only screen and (min-width: 500px) and (max-width: 800px) {
+    font-size: 50px;
+  }
 }
 
 .race-name {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 50px;
+  text-transform: uppercase;
+  @media only screen and (max-width: 499px) {
+    font-size: 25px;
+  }
+  @media only screen and (min-width: 500px) and (max-width: 800px) {
+    font-size: 30px;
+  }
 }

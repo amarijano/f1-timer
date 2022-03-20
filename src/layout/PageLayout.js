@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Layout } from "antd";
-import Header from "../components/Header/Header";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 const { Content } = Layout;
 
 function PageLayout(props) {
@@ -9,6 +10,7 @@ function PageLayout(props) {
     <Layout>
       <Header />
       <Content>{children}</Content>
+      <Footer />
     </Layout>
   );
 }

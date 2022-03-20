@@ -1,8 +1,9 @@
+import React from "react";
 import PageLayout from "../../layout/PageLayout";
 import { RacesBody } from "src/containers/RacesBody";
 import "./races.scss";
 
-function races() {
+function Races() {
   return (
     <>
       <PageLayout>
@@ -12,4 +13,4 @@ function races() {
   );
 }
 
-export default races;
+export default Races;

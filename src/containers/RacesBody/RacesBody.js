@@ -1,21 +1,20 @@
 import React, { memo } from "react";
-import { useDataContext } from "src/context";
+import { Link } from "react-router-dom";
 import ReactCountryFlag from "react-country-flag";
 import { countryCode } from "src/data/countryCode";
+import { InfoCircleOutlined } from "@ant-design/icons";
+import { useDataContext } from "src/context";
 import "./racesBody.scss";
 
 const RacesBody = () => {
   const { races, areRacesLoading } = useDataContext();
-  console.log(races);
-
-  console.log(areRacesLoading);
 
   return (
     <div className="content-wrapper">
       {areRacesLoading && <div className="loader" />}
       {!areRacesLoading && (
-        <table style={{ width: "30%" }}>
-          <thead>
+        <table className="races-table">
+          <thead className="season-table-header">
             <tr>
               <th style={{ width: "60%", borderRight: "" }}>RACE</th>
               <th />
@@ -34,6 +33,11 @@ const RacesBody = () => {
                   />
                 </td>
                 <td>{el.raceDate}</td>
+                <td style={{ width: "10%" }}>
+                  <Link to={`/races/${el.raceNameId}`}>
+                    <InfoCircleOutlined style={{ color: "whitesmoke" }} />
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>

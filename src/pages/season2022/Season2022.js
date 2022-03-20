@@ -1,4 +1,5 @@
-import { Season2022Body } from "src/components";
+import React from "react";
+import { Season2022Body } from "../../containers/Season2022Body";
 import PageLayout from "../../layout/PageLayout";
 import "./season2022.scss";
 
