@@ -124,7 +124,7 @@ const RaceInfoBody = () => {
                       {race.raceSprint.date}
                     </Row>
                   )}
-                  <Row style={{ paddingLeft: "80px" }}>
+                  <Row style={{ paddingLeft: "80px", paddingBottom: "60px" }}>
                     <u style={{ color: "rgb(225,6,0" }}>QUALIFYING</u>
                     <br />
                     {myTime(race.raceQualy)}
