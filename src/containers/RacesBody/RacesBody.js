@@ -1,16 +1,13 @@
 import React, { memo } from "react";
-import { useDataContext } from "src/context";
+import { Link } from "react-router-dom";
 import ReactCountryFlag from "react-country-flag";
 import { countryCode } from "src/data/countryCode";
 import { InfoCircleOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { useDataContext } from "src/context";
 import "./racesBody.scss";
 
 const RacesBody = () => {
   const { races, areRacesLoading } = useDataContext();
-  console.log(races);
-
-  console.log(areRacesLoading);
 
   return (
     <div className="content-wrapper">

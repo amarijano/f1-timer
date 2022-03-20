@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { FieldTimeOutlined } from "@ant-design/icons";
 import Timer from "../../components/Timer/Timer";
-import "./homepageBody.scss";
 import { useDataContext } from "src/context";
+import "./homepageBody.scss";
 
 const HomepageBody = () => {
   const { isScheduleLoading, nextRaceName } = useDataContext();

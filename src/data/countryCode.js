@@ -48,4 +48,5 @@ export const driverCountryCode = {
   HUL: "DE",
   MAG: "DK",
   KUB: "PL",
+  ALB: "TH",
 };

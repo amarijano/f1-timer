@@ -1,9 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Season2022, Races, RaceInfo, Homepage } from "src/pages";
-// import { Races } from "src/pages";
-// import Homepage from "src/pages/homepage/Homepage";
-// import { RaceInfo } from "src/pages/raceInfo";
 
 function AppRouter() {
   return (

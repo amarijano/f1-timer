@@ -1,19 +1,11 @@
 import React, { memo, useState, useEffect } from "react";
 import { Row, Col } from "antd";
-import "./Timer.scss";
 import { useDataContext } from "src/context";
+import "./Timer.scss";
 
 const Timer = () => {
   const { raceStart, startDate, screenWidth } = useDataContext();
-  // const [screenWidth, setScreenWidth] = useState();
 
-  // useEffect(() => {
-  //   const width = useSize();
-  //   setScreenWidth(width);
-  // }, []);
-  // console.log(screenWidth);
-  //console.log(startDate.getTimezoneOffset() / 60);
-  //console.log(startDate);
   const calculateTimeLeft = () => {
     const currentTime = Date.now();
     const timeDiff = Date.parse(raceStart) - currentTime;
@@ -25,6 +17,8 @@ const Timer = () => {
         MINUTES: Math.floor((timeDiff / 1000 / 60) % 60),
         SECONDS: Math.floor((timeDiff / 1000) % 60),
       };
+    } else {
+      timeLeft = undefined;
     }
     return timeLeft;
   };
@@ -57,18 +51,28 @@ const Timer = () => {
           gutter={screenWidth > 520 ? 64 : 28}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          {Object.keys(timeLeft).map((el, index) => (
-            <Col span={6} key={index}>
-              <Row className="numbers">{timeLeft[el]}</Row>
-              <Row>{el}</Row>
-            </Col>
-          ))}
+          {timeLeft &&
+            Object.keys(timeLeft).map((el, index) => (
+              <Col span={6} key={index}>
+                <Row className="numbers">{timeLeft[el]}</Row>
+                <Row>{el}</Row>
+              </Col>
+            ))}
+          {!timeLeft && (
+            <div>
+              <h2>RACE IN PROGRESS</h2>
+              <br />
+              <h3>Timer for next race available soon!</h3>
+            </div>
+          )}
         </Row>
       }
-      <p className="timer-info">
-        Lights out at {raceInfo.startHour}:{raceInfo.startMin} on{" "}
-        {raceInfo.startDay}, {raceInfo.startMonth} {raceInfo.startDate}
-      </p>
+      {timeLeft && (
+        <p className="timer-info">
+          Lights out at {raceInfo.startHour}:{raceInfo.startMin} on{" "}
+          {raceInfo.startDay}, {raceInfo.startMonth} {raceInfo.startDate}
+        </p>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
+import React from "react";
 import { HomepageBody } from "src/containers/HomepageBody";
-import "./homepage.scss";
 import PageLayout from "../../layout/PageLayout";
+import "./homepage.scss";
 
 function Homepage() {
   return (
