@@ -14,7 +14,6 @@ export const countryCode = {
   Hungary: "HU",
   Belgium: "BE",
   Netherlands: "NL",
-  Italy: "IT",
   Singapore: "SG",
   Japan: "JP",
   UnitedStates: "US",
