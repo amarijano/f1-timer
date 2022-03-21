@@ -27,7 +27,9 @@ const RacesBody = () => {
                 <td>{el.raceName}</td>
                 <td>
                   <ReactCountryFlag
-                    countryCode={countryCode[index]}
+                    countryCode={
+                      countryCode[el.raceLocation.country.replace(/\s+/g, "")]
+                    }
                     svg
                     style={{ width: "2em", height: "2em" }}
                   />
