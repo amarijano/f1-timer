@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^14.0.0",
     "antd": "^4.16.13",
