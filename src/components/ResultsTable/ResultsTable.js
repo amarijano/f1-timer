@@ -84,7 +84,7 @@ const ResultsTable = () => {
           </table>
         </>
       )}
-      {!raceResult2021 && (
+      {!raceResult2021 && !raceResult && (
         <div className="race-not-held">
           <WarningOutlined className="warning-icon" />
           <br />

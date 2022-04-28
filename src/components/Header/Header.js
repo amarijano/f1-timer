@@ -45,7 +45,9 @@ const Header = () => {
           </Link>
 
           <div className="header-right-menu">
-            <Avatar size={64} icon={<UserOutlined />} />
+            <Link to="/login">
+              <Avatar size={64} icon={<UserOutlined />} />
+            </Link>
           </div>
         </div>
       )}
@@ -63,7 +65,9 @@ const Header = () => {
           </Link>
 
           <div className="header-right-menu">
-            <Avatar size={64} icon={<UserOutlined />} />
+            <Link to="/login">
+              <Avatar size={64} icon={<UserOutlined />} />
+            </Link>
           </div>
         </div>
       )}

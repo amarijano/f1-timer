@@ -1,0 +1,126 @@
+input[type="text"],
+input[type="password"] {
+  height: 35px;
+  width: 300px;
+  // border: 1px solid rgba(0, 0, 0, 0.2);
+  // border: none;
+  outline: none;
+  background-color: black;
+  border-width: 0px 0px 2px 0px;
+  border-bottom-color: rgb(225, 6, 0);
+  caret-color: white;
+  color: white;
+}
+
+// input[type="text"],
+// input[type="password"]:focus-within {
+//   height: 60px;
+// }
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: rgb(225, 6, 0);
+  border: 1px solid rgb(225, 6, 0);
+  color: #fff;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background: rgb(228, 65, 60);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 70px;
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.list-container {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  width: fit-content;
+  margin: auto;
+}
+
+// .title {
+//   font-size: 25px;
+//   margin-bottom: 20px;
+// }
+
+.input-container {
+  display: flex;
+  // flex-direction: column;
+  // gap: 8px;
+  // margin: 10px;
+  padding: 10px;
+  justify-content: center;
+  // border: 1px solid #a0a0a0;
+  border-radius: 4px;
+  // padding-left: 0.5rem;
+  overflow: hidden;
+  width: fit-content;
+  margin-inline: auto;
+}
+.input-container:first-child {
+  padding-top: 100px;
+}
+
+.prefix {
+  background-color: black;
+  padding: 0px 5px 0px 5px;
+  line-height: 35px;
+  font-size: 20px;
+  border-bottom: 2px solid rgb(225, 6, 0);
+}
+
+.form-reg {
+  width: fit-content;
+  margin: auto;
+  color: white;
+  font-size: 12px;
+}
+.form-reg a {
+  margin-left: 90px;
+}
+
+.forgot {
+  // margin-left: 90px;
+  color: white;
+}
+.forgot:hover {
+  color: rgb(225, 6, 0);
+}
+
+.reg {
+  width: fit-content;
+  margin: auto;
+  padding-top: 20px;
+  // color: rgb(225, 6, 0) !important;
+}
+
+.reg a {
+  color: rgb(225, 6, 0);
+}
+.reg a:hover {
+  color: rgb(228, 65, 60);
+}
+
+.check-label {
+  padding-right: 5px;
+}
+
+.check {
+  vertical-align: text-bottom;
+}
