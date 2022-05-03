@@ -24,7 +24,7 @@ const DataContextProvider = (props) => {
 
   async function getSchedule() {
     setIsScheduleLoading(true);
-    const response = await fetch("http://ergast.com/api/f1/current/next.json");
+    const response = await fetch("https://ergast.com/api/f1/current/next.json");
     response
       .json()
       .then((data) => {
@@ -56,7 +56,7 @@ const DataContextProvider = (props) => {
 
   async function getRaces() {
     setAreRacesLoading(true);
-    const response = await fetch("http://ergast.com/api/f1/2022.json");
+    const response = await fetch("https://ergast.com/api/f1/2022.json");
     response
       .json()
       .then((data) => {
@@ -91,7 +91,7 @@ const DataContextProvider = (props) => {
   async function getResults() {
     setAreResultsLoading(true);
     const response = await fetch(
-      "http://ergast.com/api/f1/current/results.json?limit=440"
+      "https://ergast.com/api/f1/current/results.json?limit=440"
     );
     response
       .json()
@@ -117,7 +117,7 @@ const DataContextProvider = (props) => {
   async function getResults2021() {
     setAreResults2021Loading(true);
     const response = await fetch(
-      "http://ergast.com/api/f1/2021/results.json?limit=440"
+      "https://ergast.com/api/f1/2021/results.json?limit=440"
     );
     response
       .json()
