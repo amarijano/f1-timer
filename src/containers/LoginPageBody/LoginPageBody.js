@@ -1,5 +1,4 @@
 import React, { memo, useState } from "react";
-import { Form, Input, Button, Checkbox, Row, Col } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
@@ -86,7 +85,7 @@ const LoginPageBody = () => {
         </div>
         {renderErrorMessage("pass")}
         <div className="form-reg">
-          <label for="remember" className="check-label">
+          <label htmlFor="remember" className="check-label">
             Remember me
           </label>
           <input type="checkbox" name="remember" className="check" />
