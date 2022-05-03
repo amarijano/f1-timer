@@ -1,5 +1,5 @@
 import React, { memo, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Row, Col } from "antd";
 import { ResultsTable } from "../../components/ResultsTable";
 import { useDataContext } from "src/context";
@@ -16,7 +16,7 @@ const RaceInfoBody = () => {
     results2021,
     areResults2021Loading,
   } = useDataContext();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const raceResultDate = results.find((el) => el.raceId === raceNameId)?.date;
   const raceResultDate2021 = results2021.find(
@@ -39,7 +39,7 @@ const RaceInfoBody = () => {
   }, []);
 
   const handleClick = () => {
-    history.push("/races");
+    navigate("/races");
   };
 
   function myTime(el) {
