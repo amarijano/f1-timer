@@ -7,7 +7,6 @@ import "./raceInfoBody.scss";
 
 const RaceInfoBody = () => {
   let { raceNameId } = useParams();
-  let raceImg="";
   
   const {
     races,
@@ -27,12 +26,8 @@ const RaceInfoBody = () => {
 
   const images = require.context("../../../public/images", true);
   const race = races.find((el) => el.raceNameId === raceNameId);
-  
-  try{
-  raceImg = images(`./${raceNameId}.png`).default;
-  } catch (error) {
-  console.error("image error", error);
-  }
+  let raceImg = images(`./${raceNameId}.png`).default;
+ 
 
   const sprintRaces = [
     "SãoPauloGrandPrix",
@@ -61,7 +56,7 @@ const RaceInfoBody = () => {
   return (
     <>
       {!race && <div className="loader" />}
-      {raceImg && <div className="loader" />}
+      {!raceImg && <div className="loader" />}
       {race &&
         raceImg &&
         !areRacesLoading &&
