@@ -23,7 +23,7 @@ const RaceInfoBody = () => {
     (el) => el.raceId === raceNameId
   )?.date;
 
-  const images = require.context("../../data/images", true);
+  const images = require.context("../../../public/images", true);
   const race = races.find((el) => el.raceNameId === raceNameId);
 
   let raceImg = images(`./${raceNameId}.png`).default;
