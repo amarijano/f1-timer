@@ -57,7 +57,6 @@ const RaceInfoBody = () => {
       {!race && <div className="loader" />}
       {raceImg && <div className="loader" />}
       {race &&
-        raceImg &&
         !areRacesLoading &&
         !areResultsLoading &&
         !areResults2021Loading && (
