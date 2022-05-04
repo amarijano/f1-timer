@@ -25,8 +25,12 @@ const RaceInfoBody = () => {
 
   const images = require.context("../../../public/images", true);
   const race = races.find((el) => el.raceNameId === raceNameId);
-
+  
+  try{
   let raceImg = images(`./${raceNameId}.png`).default;
+  } catch (error) {
+  console.error("image error", error);
+  }
 
   const sprintRaces = [
     "SãoPauloGrandPrix",
