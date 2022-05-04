@@ -55,7 +55,7 @@ const RaceInfoBody = () => {
   return (
     <>
       {!race && <div className="loader" />}
-      {!raceImg && <div className="loader" />}
+      {raceImg && <div className="loader" />}
       {race &&
         raceImg &&
         !areRacesLoading &&
