@@ -7,6 +7,8 @@ import "./raceInfoBody.scss";
 
 const RaceInfoBody = () => {
   let { raceNameId } = useParams();
+  let raceImg="";
+  
   const {
     races,
     areRacesLoading,
@@ -27,7 +29,7 @@ const RaceInfoBody = () => {
   const race = races.find((el) => el.raceNameId === raceNameId);
   
   try{
-  let raceImg = images(`./${raceNameId}.png`).default;
+  raceImg = images(`./${raceNameId}.png`).default;
   } catch (error) {
   console.error("image error", error);
   }
