@@ -75,12 +75,12 @@ const RaceInfoBody = () => {
                 {", "}
                 {race.raceLocation.locality}
               </Col>
-              {raceResultDate && screenWidth > 1650 && (
+              {raceResultDate && screenWidth > 1250 && (
                 <Col span={8} offset={8} style={{ fontSize: "30px" }}>
                   Last time out {raceResultDate}
                 </Col>
               )}
-              {!raceResultDate && raceResultDate2021 && screenWidth > 1650 && (
+              {!raceResultDate && raceResultDate2021 && screenWidth > 1250 && (
                 <Col span={8} offset={8} style={{ fontSize: "30px" }}>
                   Last time out {raceResultDate2021}
                 </Col>
@@ -185,6 +185,13 @@ const RaceInfoBody = () => {
                 <Col span={24} className="race-img-col">
                   <img className="track-img" alt="trackImage" src={raceImg} />
                 </Col>
+                {raceResultDate ||
+                  (raceResultDate2021 && (
+                    <Col span={24} className="race-last-date">
+                      Results last time out{" "}
+                      {raceResultDate ? raceResultDate : raceResultDate2021}
+                    </Col>
+                  ))}
                 <Col span={24} className="race-result-col">
                   <ResultsTable className="race-result-table" />
                 </Col>
