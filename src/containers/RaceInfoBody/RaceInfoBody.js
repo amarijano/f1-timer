@@ -185,13 +185,12 @@ const RaceInfoBody = () => {
                 <Col span={24} className="race-img-col">
                   <img className="track-img" alt="trackImage" src={raceImg} />
                 </Col>
-                {raceResultDate ||
-                  (raceResultDate2021 && (
-                    <Col span={24} className="race-last-date">
-                      Results last time out{" "}
-                      {raceResultDate ? raceResultDate : raceResultDate2021}
-                    </Col>
-                  ))}
+                {(raceResultDate || raceResultDate2021) && (
+                  <Col span={24} className="race-last-date">
+                    Results last time out{" "}
+                    {raceResultDate ? raceResultDate : raceResultDate2021}
+                  </Col>
+                )}
                 <Col span={24} className="race-result-col">
                   <ResultsTable className="race-result-table" />
                 </Col>
